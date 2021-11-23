@@ -21,8 +21,14 @@ Contact Network they are sampled from Uniform distributuin `U(a, b)`. If you wan
   
 Parameter `-mode` allows to run either SSATAN-X algorithm using `-SSX` or classic SSA algorithm using `-SSA`.  
   
-The program is implemented for the following model:  
-Each of the nodes `i` in population assigned the rates of loosing and adding a new contact  &mdash;  &theta;<sub>i</sub>; and  &lambda;<sub>i</sub> respectively. 
+The program is implemented for the following model, described in a paper:  
+* ### Contact Dynamics 
+  *  Assembling of a new contact. For each pair of nodes (v<sub>i</sub> ; v<sub>i</sub>),  j &#8800; k which is not connected by an edge, the rate of assembling an edge is defined by   &lambda;<sub>j,k</sub>  &#61; &lambda;<sub>j</sub>  &lambda;<sub>k</sub> i.e. product of the assembling rates of the two nodes.
+* ### Epidemic dynamics
+
+Each of the nodes `i` in population assigned the rates of loosing and adding a new contact  &mdash;  &theta;<sub>i</sub> and  &lambda;<sub>i</sub> respectively. 
+
+
 
 |event  | rate|
 | ---      | ---       |
