@@ -15,3 +15,5 @@ where ```config.json``` is a simple ```json``` file with settings for initial Co
 * fields ```new_contact_rate``` and ```loose_contact_rate``` describe 
 * field ```seed``` aloows to fix a seed for the Pseudo-Random Number Generator (Mersenne Twister 19937) during initiation of the Contact network. Plese note that simulations performed with randomly chosen different seeds are not guaranteed to be (pseudo)independent.
 * field ```initial_edges``` describes an initial number of edges in the Contact Network
+  
+Parameter ```-mode``` allows to run either SSATAN-X algorithm using ```-SSX``` or classic SSA algorithm using ```-SSA```.
