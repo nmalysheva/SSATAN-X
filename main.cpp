@@ -51,29 +51,26 @@ void saveOutput(nlohmann::ordered_json &output, const ContactNetwork &contNetwor
     }
 }
 
-void executeSSA(const Settings& settings, size_t simulationNumber)
+void executeSSA(const Settings& settings)
 {
     ContactNetwork contNetwork(settings);
 
     nlohmann::ordered_json output;
     saveInitialStates(output, contNetwork, settings);
 
-    size_t nPopulation = contNetwork.size();
-
     NetworkStorage nwStorage;
     nwStorage.reserve(1e6 + 1);
 
-    SSA ssa;
     auto start_time = std::chrono::high_resolution_clock::now();
-    ssa.execute(0, settings.getSimulationTime(), contNetwork, nwStorage);
+    auto const filename = std::chrono::system_clock::now().time_since_epoch().count();
+    SSA().execute(0, settings.getSimulationTime(), contNetwork, nwStorage);
     auto end_time = std::chrono::high_resolution_clock::now();
     auto time = end_time - start_time;
 
     output["duration_in_milliseconds"] = std::chrono::duration <double, std::milli> (time).count();
     saveOutput(output, contNetwork, nwStorage);
 
-    std::string fileName = "SSA_"  + std::to_string(nPopulation) + "_"+
-                      std::to_string(simulationNumber) + ".txt";
+    std::string fileName = "SSA_" + std::to_string(filename) + ".txt";
 
     std::ofstream newFile;
     newFile.open(fileName);
@@ -82,14 +79,12 @@ void executeSSA(const Settings& settings, size_t simulationNumber)
 
 }
 
-void executeSSATANX(const Settings& settings, size_t simulationNumber)
+void executeSSATANX(const Settings& settings)
 {
     ContactNetwork contNetwork(settings);
 
     nlohmann::ordered_json output;
     saveInitialStates(output, contNetwork, settings);
-
-    size_t nPopulation = contNetwork.size();
 
     NetworkStorage nwStorage;
     nwStorage.reserve(1e6 + 1);
@@ -99,13 +94,13 @@ void executeSSATANX(const Settings& settings, size_t simulationNumber)
     size_t nThin = 0;
 
 
-    SSATANX nsa;
     auto start_time = std::chrono::high_resolution_clock::now();
-    nsa.execute(0, settings.getSimulationTime(), contNetwork, nwStorage,nRejections, nAcceptance, nThin);
+    auto const filename = std::chrono::system_clock::now().time_since_epoch().count();
+    SSATANX().execute(0, settings.getSimulationTime(), contNetwork, nwStorage,nRejections, nAcceptance, nThin);
     auto end_time = std::chrono::high_resolution_clock::now();
     auto time = end_time - start_time;
 
-    std::string fileName = "NSA_"  + std::to_string(nPopulation) + "_" + std::to_string(simulationNumber) + ".txt";
+    std::string fileName = "NSA_" + std::to_string(filename) + ".txt";
 
     output["duration_in_milliseconds"] = std::chrono::duration <double, std::milli> (time).count();
     output["accepted"] = nAcceptance;
@@ -124,17 +119,17 @@ void executeSSATANX(const Settings& settings, size_t simulationNumber)
 void viralDynamics(int argc, char* argv[])
 {
     std::string mode = std::string(argv[2]);
-    size_t simulationNumber = std::stoi(argv[3]);
+    //size_t simulationNumber = std::stoi(argv[3]);
     std::string fileName = std::string(argv[1]);
     Settings settings;
     settings.parseSettings(fileName);
     if (mode=="-SSA")
     {
-        executeSSA(settings, simulationNumber);
+        executeSSA(settings);
     }
     else if (mode=="-SSX")
     {
-        executeSSATANX(settings, simulationNumber);
+        executeSSATANX(settings);
     }
     else
     {
@@ -145,7 +140,7 @@ void viralDynamics(int argc, char* argv[])
 
 int main(int argc, char* argv[])
 {
-    if (argc != 4)
+    if (argc != 3)
     {
         std::string msg = "Invalid parameters";
         throw std::domain_error(msg);
