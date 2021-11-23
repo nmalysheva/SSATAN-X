@@ -18,7 +18,7 @@ void saveInitialStates(nlohmann::ordered_json &output, const ContactNetwork &con
 
     output["rate_of_make_a_new_contact"] = {settings.getNewConactRateParameters().a, settings.getNewConactRateParameters().b};
     output["rate_of_loose_a_contact"] = {settings.getLooseConactRateParameters().a, settings.getLooseConactRateParameters().b};
-    output["birth_rate"] = settings.getBirthRate();
+    //output["birth_rate"] = settings.getBirthRate();
     output["diagnosis_rate"] = settings.getDiagnosisRate();
     output["transmission_rate"] = settings.getTransmissionRate();
 }
@@ -100,7 +100,7 @@ void executeSSATANX(const Settings& settings)
     auto end_time = std::chrono::high_resolution_clock::now();
     auto time = end_time - start_time;
 
-    std::string fileName = "NSA_" + std::to_string(filename) + ".txt";
+    std::string fileName = "SSX_" + std::to_string(filename) + ".txt";
 
     output["duration_in_milliseconds"] = std::chrono::duration <double, std::milli> (time).count();
     output["accepted"] = nAcceptance;

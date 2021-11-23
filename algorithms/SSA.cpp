@@ -30,8 +30,8 @@ void SSA::execute(double tStart, double tEnd, ContactNetwork &contNetwork,
             {"edge_add", 0},
             {"transmission", 0},
             {"diagnosis", 0},
-            {"death", 0},
-            {"birth", 0},
+            {"death", 0}
+            //{"birth", 0},
     };
 
 
@@ -54,7 +54,7 @@ void SSA::execute(double tStart, double tEnd, ContactNetwork &contNetwork,
         propensities.at("diagnosis") = propDiagnos.back().first;
         propensities.at("death") = propDeath.back().first;
 
-        propensities.at("birth") = contNetwork.getBirthRateSum();
+        //propensities.at("birth") = contNetwork.getBirthRateSum();
 
 
         double propensitieSum = std::accumulate(propensities.begin(), propensities.end(), 0.0, [](double value, const std::unordered_map<std::string, double >::value_type &b){return value + b.second;});
@@ -135,8 +135,8 @@ void SSA::executeReaction(ContactNetwork & contNetwork, const std::string &react
         nwStorage.emplace_back(time, contNetwork.getNetworkState());
     }
 
-    else if (reactId == "birth")
+    /*else if (reactId == "birth")
     {
         //contNetwork.executeBirth(rStart, rBound);
-    }
+    }*/
 }

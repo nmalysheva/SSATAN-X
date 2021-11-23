@@ -33,10 +33,10 @@ size_t Settings::getNumberOfEdges() const
     return numOfEdges;
 }
 
-double Settings::getBirthRate() const
+/*double Settings::getBirthRate() const
 {
     return birthRate;
-}
+}*/
 
 double Settings::getDiagnosisRate() const
 {
@@ -73,7 +73,7 @@ void Settings::parseSettings(const std::string & configFileName)
     }
 
     seed = jsonObj.at("seed").get<uint>();
-    birthRate = jsonObj.at("birth_rate").get<double>();
+    //birthRate = jsonObj.at("birth_rate").get<double>();
     numOfEdges = jsonObj.at("initial_edges").get<size_t>();
     simulationTime = jsonObj.at("simulation_time").get<double>();
 

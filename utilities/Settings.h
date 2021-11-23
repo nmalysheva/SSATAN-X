@@ -54,7 +54,7 @@ public:
     std::unordered_map<std::string, SpecieSettings> getStateSettings() const;
     double getDiagnosisRate() const;
     double getTransmissionRate() const;
-    double getBirthRate() const;
+    //double getBirthRate() const;
     uint getSeed() const;
 
     distParameters getLooseConactRateParameters()const;
@@ -68,7 +68,7 @@ private:
     std::unordered_map<std::string, SpecieSettings> stateSettings;
     double diagnosisRate;
     double transmissionRate;
-    double birthRate;
+    //double birthRate;
     uint seed;
 
     distParameters looseContactParameters;

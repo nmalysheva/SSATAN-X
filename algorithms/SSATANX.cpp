@@ -37,8 +37,8 @@ void SSATANX::execute(double tStart, double tEnd, ContactNetwork &contNetwork, N
     std::unordered_map<std::string, double >propensities{
             {"transmission", propTransmit.back().first},
             {"diagnosis",propDiagnos.back().first},
-            {"death", propDeath.back().first},
-            {"birth", contNetwork.getBirthRateSum()},
+            {"death", propDeath.back().first}
+            //{"birth", contNetwork.getBirthRateSum()},
     };
 
     while (time < tEnd)
@@ -77,7 +77,7 @@ void SSATANX::execute(double tStart, double tEnd, ContactNetwork &contNetwork, N
                 propensities.at("diagnosis") = propDiagnos.back().first;
                 propDeath = contNetwork.getDeathRateSum();
                 propensities.at("death") = propDeath.back().first;
-                propensities.at("birth") = contNetwork.getBirthRateSum();
+                //propensities.at("birth") = contNetwork.getBirthRateSum();
 
                 double propensitieSum = std::accumulate(propensities.begin(), propensities.end(), 0.0, [] (double value, const std::map<std::string, double>::value_type& p)
                 { return value + p.second; });
@@ -114,7 +114,7 @@ void SSATANX::execute(double tStart, double tEnd, ContactNetwork &contNetwork, N
                             propDiagnos = contNetwork.getDiagnosisRateSum();
                             propensities.at("diagnosis") = propDiagnos.back().first;
 
-                            propensities.at("birth") = contNetwork.getBirthRateSum();
+                            //propensities.at("birth") = contNetwork.getBirthRateSum();
 
                             break;
                         }

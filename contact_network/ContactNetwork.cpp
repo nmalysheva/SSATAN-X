@@ -38,7 +38,7 @@ void ContactNetwork::init(const Settings&settings)
     }
 
     transmissionRate = settings.getTransmissionRate();
-    birthRate = settings.getBirthRate();
+    //birthRate = settings.getBirthRate();
     diagnosisRate = settings.getDiagnosisRate();
     deathRate.push_back(statesSettings.at("S").deathRate);
     deathRate.push_back(statesSettings.at("I").deathRate);
@@ -238,10 +238,10 @@ double ContactNetwork::getTransmissionRateLimit() const
 }
 
 
-double ContactNetwork::getBirthRateSum()const
+/*double ContactNetwork::getBirthRateSum()const
 {
     return birthRate;
-}
+}*/
 
 size_t ContactNetwork::size() const
 {
@@ -395,14 +395,14 @@ void ContactNetwork::executeDeath(Node & node)
 
 }
 
-void ContactNetwork::executeBirth(double rStart, double rBound)
+/*void ContactNetwork::executeBirth(double rStart, double rBound)
 {
     double result = rStart;
     result += birthRate;
     if (result >= rBound)
     {
     }
-}
+}*/
 
 double  ContactNetwork::getEdgeAdditionRate(const Edge &complementEdge) const
 {
