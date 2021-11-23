@@ -33,5 +33,5 @@ The program is implemented for the following model, described in a paper:
   * An infected individual may be diagnosed with the infection `I` &#10230; `D` with rate &delta; > 0
   * Individuals may die: `I` &#10230; &#8709;, `D` &#10230; &#8709;  with rate &beta; > 0
 * ### Adaptivity
-  * In case of diagnosis, an individual cuts all contacts and the individual's rate of establishing new contact drops to 30% of the pre-diagnosis level, i.e &lambda;<sub>j</sub> &#61; &lambda;<sub>j</sub> &middot; 0.3. Adaprivity behaviour is inline and can be changed if desired.
+  * In case of diagnosis, an individual cuts all contacts and the individual's rate of establishing new contact drops to 30% of the pre-diagnosis level, i.e &lambda;<sub>j</sub> &#61; &lambda;<sub>j</sub> &middot; 0.3. Adaptivity behaviour is implemented inline and can be changed inline if desired.
 
