@@ -24,18 +24,15 @@ Parameter `-mode` allows to run either SSATAN-X algorithm using `-SSX` or classi
 The program is implemented for the following model, described in a paper:  
 * ### Contact Dynamics 
   *  Assembling of a new contact. For each pair of nodes (v<sub>i</sub> ; v<sub>i</sub>),  j &#8800; k which is not connected by an edge, the rate of assembling an edge is defined by   &lambda;<sub>j,k</sub>  &#61; &lambda;<sub>j</sub>  &lambda;<sub>k</sub> i.e. product of the assembling rates of the two nodes.
+  *  Disassembling of an existing contact. For each pair of nodes (v<sub>i</sub> ; v<sub>i</sub>),  j &#8800; k that are connected by an edge, the rate of disassembling is defined as &theta;<sub>j,k</sub>  &#61; &theta;<sub>j</sub>  &theta;<sub>k</sub> i.e. the product of the disassembling rates of the two nodes.
+  
 * ### Epidemic dynamics
+  * An infection emanating from an undiagnosed, infected individual `S` + `I` &#10230; `I` + `I` occurs with rate &gamma; > 0 if nodes j and k are connected.
+  * An infection emanating from an undiagnosed, infected individual `S` + `D` &#10230; `I` + `D` occurs with rate &gamma;/2 > 0 if nodes j and k are connected.
+  * An infected individual may be diagnosed with the infection `I` &#10230; `D` with rate &delta; > 0
+  * Individuals may die: `I` &#10230; &#8709;, `D` &#10230; &#8709;  with rate &beta; > 0
 
-Each of the nodes `i` in population assigned the rates of loosing and adding a new contact  &mdash;  &theta;<sub>i</sub> and  &lambda;<sub>i</sub> respectively. 
 
-
-
-|event  | rate|
-| ---      | ---       |
-|`S` + `I` &#10230; `I` + `I` | &gamma;|
-|`S` + `D` &#10230; `I` + `D`|  &gamma;/2|
-|`I` &#10230; &#8709;    |&beta;|
-|`D` &#10230; &#8709; |&beta;|
 
 Adaprivity is inline
 
