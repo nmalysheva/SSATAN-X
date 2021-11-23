@@ -1,0 +1,1 @@
+{"species":[{"state":"S","amount":180,"death_rate":0.00},{"state":"I","amount":20,"death_rate":0.08},{"state":"D","amount":0,"death_rate":0.08}],"initial_edges":3000,"diagnosis_rate":0.5,"birth_rate":0.0,"simulation_time":5.0, "seed":3, "new_contact_rate":[0.5, 2.5], "loose_contact_rate":[0.4, 2.0], "transmission_rate":0.004}
