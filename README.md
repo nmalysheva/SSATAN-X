@@ -26,7 +26,7 @@ Contact Network they are sampled from Uniform distribution `U(a, b)`. If a user 
 Parameter `-mode` allows to run either the SSATAN-X algorithm using `-SSX` or classic SSA algorithm using `-SSA`.  
    
 ## Model
-The codes implement the following model, as described in a paper: 
+The codes implement the following model, as described in the paper: 
 * ### Contact Dynamics 
   *  Assembling of a new contact. For each pair of nodes (v<sub>i</sub> ; v<sub>i</sub>),  j &#8800; k which is not connected by an edge, the rate of assembling an edge is defined by   &lambda;<sub>j,k</sub>  &#61; &lambda;<sub>j</sub>  &lambda;<sub>k</sub> i.e. product of the assembling rates of the two nodes.
   *  Disassembling of an existing contact. For each pair of nodes (v<sub>i</sub> ; v<sub>i</sub>),  j &#8800; k that are connected by an edge, the rate of disassembling is defined as &theta;<sub>j,k</sub>  &#61; &theta;<sub>j</sub>  &theta;<sub>k</sub> i.e. the product of the disassembling rates of the two nodes.
