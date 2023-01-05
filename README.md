@@ -4,7 +4,7 @@ Pathogen spreading is often modelled as a stochastic process that is driven by p
 Stochastic Simulation Algorithm for effective spreading dynamics on Time-evolving Adaptive NetworX (SSATAN-X) denotes a novel algorithm that significantly accelerates the simulation of spreading dynamics on adaptive networks. The key idea of SSATAN-X is to only capture the contact dynamics that are relevant to the spreading process. SSATAN-X achieves this by leaping forward and bulk updating the underlying contact dynamics until a reaction of the epidemic process (e.g. pathogen spreading) happens, combining ideas of EXTRANDE and tau-leaping. The contact updates accurately capture the statistics of the process at times when epidemic events happen. Consequently, the statistics of the epidemic process are also captured accurately.
 Overall, the algorithm achieves an approx. 100-fold speed-up over the stochastic simulation algorithm. The algorithm is described in the paper: N. Malysheva, M. von Kleist "Stochastic Simulation Algorithm for effective spreading dynamics on Time-evolving Adaptive NetworX (SSATAN-X)"  (https://biorxiv.org/cgi/content/short/2021.11.22.469498v1).   
 
-This repository provides the C++ code for SSATAN-X.  
+This repository provides the C++ code for SSATAN-X. Standard C++20  is required for successful compilation.
   
 The program needs LEMON (https://lemon.cs.elte.hu/trac/lemon) and JSON for Modern C++ (https://json.nlohmann.me/) Libraries to be installed.  
   
