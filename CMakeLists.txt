@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(SSATAN-X)
 
 set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra")
 
 FIND_PATH(LEMON_SOURCE_ROOT_DIR CMakeLists.txt
@@ -42,4 +43,4 @@ IF(CMAKE_COMPILER_IS_GNUCXX)
     SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pthread")
 ENDIF(CMAKE_COMPILER_IS_GNUCXX)
 
-add_executable(SSATAN-X main.cpp contact_network/Specie.cpp contact_network/Specie.h contact_network/ContactNetwork.cpp contact_network/ContactNetwork.h algorithms/SSA.cpp algorithms/SSA.h algorithms/SSATANX.cpp algorithms/SSATANX.h utilities/Utility.h utilities/Utility.cpp algorithms/AndersonTauLeap.h algorithms/AndersonTauLeap.cpp utilities/types.h nlohmann/json.h utilities/Settings.h utilities/Settings.cpp)
+add_executable(SSATAN-X main.cpp contact_network/Specie.cpp contact_network/Specie.h contact_network/ContactNetwork.cpp contact_network/ContactNetwork.h algorithms/SSA.cpp algorithms/SSA.h algorithms/SSATANX.cpp algorithms/SSATANX.h utilities/Utility.h utilities/Utility.cpp algorithms/AndersonTauLeap.h algorithms/AndersonTauLeap.cpp utilities/types.h nlohmann/json.h utilities/Settings.h utilities/Settings.cpp algorithms/ParallelUpdates.h algorithms/ParallelUpdates.cpp)
